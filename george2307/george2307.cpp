@@ -2,12 +2,16 @@
 //
 #include <iostream>
 #include <string>
+#include "Stack.cpp"
 
 int EvaluateCommandStack(const std::string& option)
 {
     if (option == "create")
     {
         // create stack
+        Stack<int> intStack;
+        Stack<char*> charPtrStack;
+
     }
 
     return 0;

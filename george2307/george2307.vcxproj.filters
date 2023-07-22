@@ -16,10 +16,45 @@
     <Filter Include="Source Files\Stack">
       <UniqueIdentifier>{a8f567c5-6614-43f1-907e-9bd20a2f8faf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ContactManager">
+      <UniqueIdentifier>{3089e783-b1d0-47f5-bdfd-0ae81495ef65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Generics">
+      <UniqueIdentifier>{24175964-a0c6-46d8-9cb4-a9e78f75a19f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Queue">
+      <UniqueIdentifier>{c55f46ca-3415-4c99-8c47-72b9f5b401ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="george2307.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Contact.h">
+      <Filter>Source Files\ContactManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>Source Files\ContactManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Company.cpp">
+      <Filter>Source Files\ContactManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Source Files\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericExample.cpp">
+      <Filter>Source Files\Generics</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>Source Files\Queue</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
