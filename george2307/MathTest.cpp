@@ -37,7 +37,3 @@ void CalculateAverage_WhenArrayIsNull_ShouldThrow()
 
 	std::cout << "** Test Failed **" << std::endl;
 }
-
-
-
-
