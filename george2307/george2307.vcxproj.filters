@@ -60,6 +60,12 @@
     <ClCompile Include="MathTest.cpp">
       <Filter>Source Files\week4Testing</Filter>
     </ClCompile>
+    <ClCompile Include="QueueTest.cpp">
+      <Filter>Source Files\week4Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="TestHelper.cpp">
+      <Filter>Source Files\week4Testing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Test.h">
@@ -72,6 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

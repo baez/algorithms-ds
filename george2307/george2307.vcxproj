@@ -145,8 +145,10 @@
     <ClCompile Include="george2307.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="QueueTest.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Test.cpp" />
+    <ClCompile Include="TestHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MathTest.cpp">
@@ -158,7 +160,9 @@
     </ClCompile>
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="QueueTest.h" />
     <ClInclude Include="Test.h" />
+    <ClInclude Include="TestHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

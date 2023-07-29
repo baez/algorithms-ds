@@ -31,9 +31,6 @@ void CalculateAverage_WhenArrayIsNull_ShouldThrow()
 	}
 	catch (exception& err)
 	{
-		std::cout << "Exception was caught " << err.what() << endl;
-		std::cout << " -- Test Passed :) " << endl;
+		std::cout << "--- Test Passed :) " << endl;
 	}
-
-	std::cout << "** Test Failed **" << std::endl;
 }

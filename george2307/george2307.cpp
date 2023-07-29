@@ -8,11 +8,13 @@ using namespace std;
 #include "Stack.cpp"
 #include "MathTest.h"
 #include "MathUtil.h"
+#include "QueueTest.h"
 
 int main()
 {
     CalculateAverage_HappyPath();
     CalculateAverage_WhenArrayIsNull_ShouldThrow();
+    Dequeue_WhenItemsEnqueued_ShouldReturnFirstItem();
 }
 
 /*

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <exception>
 using namespace std;
 
 // Queue
@@ -56,7 +57,7 @@ public:
 	{
 		if (m_currentSize == 0)
 		{
-			throw new exception("Queue::Dequeue - queue is empty.")
+			throw new exception("Queue::Dequeue - queue is empty.");
 		}
 
 		T value = m_array[m_head];
@@ -69,6 +70,8 @@ public:
 
 		m_head++;
 		m_currentSize--;
+
+		return value;
 	}
 
 	bool IsFull()
