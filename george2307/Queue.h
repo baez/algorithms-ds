@@ -15,7 +15,7 @@ class Queue
 
 public:
 	Queue(int maxLength, T defaultValue) :
-		m_head(0), m_tail(0), m_currentSize(0)
+		m_head(0), m_tail(-1), m_currentSize(0)
 	{
 		m_maxLength = maxLength;
 		m_array = new T[maxLength];
