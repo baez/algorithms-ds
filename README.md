@@ -1,3 +1,2 @@
-# algo1-2307
-Request accepted
-Testing if i can change stuff
+# cpp-algo1-2023-07
+Algorithms 1 solution
