@@ -1,5 +1,8 @@
 #pragma once
 
+using namespace std;
+
+// Queue
 template<typename T>
 class Queue
 {
