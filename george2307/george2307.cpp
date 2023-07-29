@@ -1,9 +1,21 @@
 // george2307.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+
 #include <iostream>
+using namespace std;
+
 #include <string>
 #include "Stack.cpp"
+#include "MathTest.h"
+#include "MathUtil.h"
 
+int main()
+{
+    CalculateAverage_HappyPath();
+    CalculateAverage_WhenArrayIsNull_ShouldThrow();
+}
+
+/*
 int EvaluateCommandStack(const std::string& option)
 {
     if (option == "create")
@@ -22,9 +34,9 @@ void PrintOptionsStack()
     std::cout << "-- create" << std::endl;
     std::cout << "-- exit" << std::endl;
 }
+*/
 
-int main()
-{
+/*
     std::cout << "Welcome to my REPL \n";
 
     //  main loop
@@ -39,13 +51,16 @@ int main()
         {
             break;
         }
-        
+
         EvaluateCommandStack(input);
     }
 
     std::cout << "Thanks and goodbye!" << std::endl;
-}
 
+
+
+
+*/
 
 
 

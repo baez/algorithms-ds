@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Queue">
       <UniqueIdentifier>{c55f46ca-3415-4c99-8c47-72b9f5b401ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\week4Testing">
+      <UniqueIdentifier>{b25d10e0-1405-4f11-9036-1469a1310e8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="george2307.cpp">
@@ -51,9 +54,21 @@
     <ClCompile Include="Queue.cpp">
       <Filter>Source Files\Queue</Filter>
     </ClCompile>
+    <ClCompile Include="MathUtil.cpp">
+      <Filter>Source Files\week4Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="MathTest.cpp">
+      <Filter>Source Files\week4Testing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

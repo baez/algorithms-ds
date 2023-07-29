@@ -1,4 +1,6 @@
 
+
+/*
 template <typename T>
 class Stack
 {
@@ -28,3 +30,5 @@ class Stack
 		return index + 1;
 	}
 };
+
+*/
