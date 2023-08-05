@@ -11,7 +11,45 @@ using namespace std;
 #include "MathUtil.h"
 #include "QueueTest.h"
 
+int Factorial(int n)
+{
+    /* base check */
+    if (n == 0)
+    {
+        return 1;
+    }
 
+    /* call self  f(4) => 4 * 3 * 2 * 1 */
+    return n * Factorial(n - 1);
+}
+
+/*
+Fibonacci: each number is calculated by adding the previous two numbers
+0, 1, 1, 2, 3, 5, 8
+
+Write a recursive function to calculate fibonacci of n
+
+int Fibonacci(int n)
+int result = Fibpnacci(3)
+
+*/
+
+int Fibonacci(int n)
+{
+    // base case
+    if (n <= 0)
+    {
+        return 0;
+    }
+    else if (n == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+}
 
 int BinarySearch(int element, const int* v, int size)
 {
@@ -50,6 +88,23 @@ Exit when user enters 0
 
 int main()
 {
+    cout << "Calculate Fibonacci for:";
+    int q;
+    cin >> q;
+    int rfib = Fibonacci(q);
+    cout << "Factorial of " << q << " is: " << rfib << endl;
+
+    cout << "------------------------------------------" << endl;
+
+    cout << "Calculate Factorial for:";
+    int f;
+    cin >> f;
+
+    int res = Factorial(f);
+    cout << "Factorial of " << f << " is: " << res << endl;
+
+    cout << "------------------------------------------" << endl;
+
     vector<int> v{ 11, 22, 33, 44, 55, 66, 77, 88, 99, 111, 121, 131, 220, 250, 300, 350 };
 
     cout << "Element to search for:";
