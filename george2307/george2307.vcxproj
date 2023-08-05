@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="Company.cpp" />
     <ClCompile Include="Contact.h" />
     <ClCompile Include="GenericExample.cpp" />

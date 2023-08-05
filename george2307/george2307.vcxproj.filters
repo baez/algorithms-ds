@@ -28,6 +28,9 @@
     <Filter Include="Source Files\week4Testing">
       <UniqueIdentifier>{b25d10e0-1405-4f11-9036-1469a1310e8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Week5">
+      <UniqueIdentifier>{6fcbe2c2-53a3-4e20-ab3d-e8d011ebe49a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="george2307.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="TestHelper.cpp">
       <Filter>Source Files\week4Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="BinarySearch.cpp">
+      <Filter>Source Files\Week5</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
