@@ -51,6 +51,22 @@ int Fibonacci(int n)
     }
 }
 
+double Power(double base, int exponent)
+{
+    if (exponent == 0)
+    {
+        return 1.0;
+    }
+    else if (exponent < 0)
+    {
+        return 1.0 / Power(base, -exponent);
+    }
+    else
+    {
+        return base * Power(base, exponent - 1);
+    }
+}
+
 int BinarySearch(int element, const int* v, int size)
 {
     int left = 0;
@@ -88,6 +104,19 @@ Exit when user enters 0
 
 int main()
 {
+    cout << "Calculate base:";
+    int b;
+    cin >> b;
+
+    cout << "To the power of:";
+    int p;
+    cin >> p;
+
+    int powerOfRes = Power(b, p);
+    cout << "Power result: " << powerOfRes << endl;
+
+    cout << "------------------------------------------" << endl;
+
     cout << "Calculate Fibonacci for:";
     int q;
     cin >> q;
