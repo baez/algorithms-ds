@@ -101,7 +101,6 @@ Exit when user enters 0
 
 */
 
-
 int main()
 {
     cout << "Calculate base:";
