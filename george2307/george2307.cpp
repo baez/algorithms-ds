@@ -12,6 +12,7 @@ using namespace std;
 #include "QueueTest.h"
 
 
+
 int BinarySearch(int element, const int* v, int size)
 {
     int left = 0;
@@ -38,10 +39,18 @@ int BinarySearch(int element, const int* v, int size)
     return -1;
 }
 
+/*
+
+Lab: add the number of iterations for each search and print it to the console.
+Add a loop to the user input 
+Exit when user enters 0
+
+*/
+
 
 int main()
 {
-    vector<int> v{ 11, 22, 33, 44, 55, 66, 77, 88, 99, 111, 121, 131 };
+    vector<int> v{ 11, 22, 33, 44, 55, 66, 77, 88, 99, 111, 121, 131, 220, 250, 300, 350 };
 
     cout << "Element to search for:";
     int x;
