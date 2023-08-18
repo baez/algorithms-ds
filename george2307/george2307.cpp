@@ -10,6 +10,7 @@ using namespace std;
 #include "MathTest.h"
 #include "MathUtil.h"
 #include "QueueTest.h"
+#include "IntArray.h"
 
 int Factorial(int n)
 {
@@ -22,6 +23,25 @@ int Factorial(int n)
     /* call self  f(4) => 4 * 3 * 2 * 1 */
     return n * Factorial(n - 1);
 }
+
+string TryToConvert()
+{
+    int n{1}; // int n = 1;
+    cin >> n;
+    if (n == 3)
+    {
+        string c{ "64" };
+    }
+    else
+    {
+        cout << "0" << endl;
+    }
+
+    return "";
+    // cout << c << '\n'; 
+    // return c;
+}
+
 
 /*
 Fibonacci: each number is calculated by adding the previous two numbers
@@ -93,6 +113,29 @@ int BinarySearch(int element, const int* v, int size)
     return -1;
 }
 
+
+int main()
+{
+    IntArray arr1{ 4 };
+
+    cout << arr1[0] << std::endl;
+
+    arr1[0] = 10;
+    arr1[2] = 23;
+    arr1[1] = 19;
+    arr1[3] = 89;
+
+    // arr1[10] = 90; this line should throw an exception
+
+    IntArray arr2 = arr1;
+
+    cout << "arr1: " << arr1 << std::endl;
+
+    arr2[3] = 209;
+
+    cout << "arr2: " << arr2 << std::endl;
+}
+
 /*
 
 Lab: add the number of iterations for each search and print it to the console.
@@ -101,7 +144,7 @@ Exit when user enters 0
 
 */
 
-int main()
+void TestRecursiveFuncs()
 {
     cout << "Calculate base:";
     int b;
