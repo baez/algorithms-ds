@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <random>
 using namespace std;
 
 #include <string>
@@ -223,8 +224,66 @@ void Display(int arr[], int size)
     cout << endl;
 }
 
+int* GenerateRandomIntegers(int minRange, int maxRange, int size)
+{
+    std::random_device randDev;
+    std::mt19937 generator(randDev());
+
+    int* integers = new int[size];
+
+    std::uniform_int_distribution<int> distribution(minRange, maxRange);
+
+    for (int i = 0; i < size; ++i)
+    {
+        integers[i] = distribution(generator);
+    }
+
+    return integers;
+}
+
+void TestBubbleSort(int size)
+{
+    cout << "======= BubleSort with " << size << " ==========" << endl;
+    int* integers = GenerateRandomIntegers(0, 1000, size);
+    // Display(integers, size);
+
+    auto startTime1 = std::chrono::high_resolution_clock::now();
+
+    int* sortedIntegers = BubbleSort(integers, size);
+
+    auto endTime1 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapedTime1 = endTime1 - startTime1;
+    cout << "time elapsed was: " << elapedTime1.count() << " seconds" << endl;
+    cout << "=========== || ==========" << endl;
+}
+
 int main()
 {
+    TestBubbleSort(100);
+    TestBubbleSort(1000);
+    TestBubbleSort(10000);
+    TestBubbleSort(20000);
+    TestBubbleSort(30000);
+    TestBubbleSort(50000);
+    TestBubbleSort(100000);
+
+
+    int size = 10000;
+    int* integers = GenerateRandomIntegers(0, 1000, size);
+    // Display(integers, size);
+
+    auto startTime1 = std::chrono::high_resolution_clock::now();
+
+    int* sortedIntegers = BubbleSort(integers, size);
+    
+    auto endTime1 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapedTime1 = endTime1 - startTime1;
+    cout << "time elapsed is: " << elapedTime1.count() << " seconds" << endl;
+    cout << "======= Sorted integers ==========" << endl;
+    // Display(integers, size);
+
+    // =================================================
+
     int arr6[7] = { 1, 7, 0, 23, 9, 12, 4 };
     cout << "Bubble sort" << endl;
     Display(arr6, 7);
