@@ -243,7 +243,7 @@ int* GenerateRandomIntegers(int minRange, int maxRange, int size)
 
 void TestBubbleSort(int size)
 {
-    cout << "======= BubleSort with " << size << " ==========" << endl;
+    cout << "======= BubbleSort with " << size << " ==========" << endl;
     int* integers = GenerateRandomIntegers(0, 1000, size);
     // Display(integers, size);
 
