@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Week5">
       <UniqueIdentifier>{6fcbe2c2-53a3-4e20-ab3d-e8d011ebe49a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Week7">
+      <UniqueIdentifier>{eef6f14b-e393-4700-9c44-a774beb36457}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="george2307.cpp">
@@ -96,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IndexOutOfBoundException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayFuncs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

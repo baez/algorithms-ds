@@ -12,6 +12,30 @@ using namespace std;
 #include "QueueTest.h"
 #include "IntArray.h"
 
+// Rearranging an Array of positive and negative numbers
+// Input: [-1, 7, 0, 23, -9, -12, 4]
+// Output: negative values to come first (left), zero 0 and the positive values on the right
+//         example output: [-1, -9, -12, 7, 0, 23, 4]
+// 
+int* ReArrange(int array[], int size)
+{
+    int k = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (array[i] < 0)
+        {
+            if (i != k)
+            {
+                std::swap(array[i], array[k]);
+            }
+
+            k++;
+        }
+    }
+
+    return array;
+}
+
 int Factorial(int n)
 {
     /* base check */
@@ -116,6 +140,10 @@ int BinarySearch(int element, const int* v, int size)
 
 int main()
 {
+    int arr5[7] = { -1, 7, 0, 23, -9, -12, 4 };
+    int* res5 = ReArrange(arr5, 7);
+
+
     IntArray arr1{ 4 };
 
     cout << arr1[0] << std::endl;
