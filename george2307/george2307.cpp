@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <chrono>
 using namespace std;
 
 #include <string>
@@ -227,7 +228,13 @@ int main()
     int arr6[7] = { 1, 7, 0, 23, 9, 12, 4 };
     cout << "Bubble sort" << endl;
     Display(arr6, 7);
+
+    auto startTime = std::chrono::high_resolution_clock::now();
     int* res6 = BubbleSort(arr6, 7);
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapedTime = endTime - startTime;
+    cout << "time elapsed is: " << elapedTime.count() << " seconds" << endl;
+
     Display(res6, 7);
 
     int arr7[7] = { 1, 7, 0, 23, 9, 12, 4 };
@@ -244,6 +251,7 @@ int main()
 
     int arr5[7] = { -1, 7, 0, 23, -9, -12, 4 };
     int* res5 = ReArrange(arr5, 7);
+
 
     IntArray arr1{ 4 };
 
