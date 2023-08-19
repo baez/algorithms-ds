@@ -36,6 +36,81 @@ int* ReArrange(int array[], int size)
     return array;
 }
 
+void Swap(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// [1, 7, 0, 23, 9, 12, 4]
+// Simplest sorting is Bubble Sort
+// Goes through the set of items
+//  { 1, 7, 0, 23, 9, 12, 4 };
+int* BubbleSort(int* arr, int size)
+{
+    for (int k = 0; k < size - 1; k++)
+    {
+        bool didSwap = false;
+        for (int i = 0; i < size - k - 1; ++i)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                swap(arr[i], arr[i + 1]);
+                didSwap = true;
+            }
+        }
+
+        if (!didSwap)
+        {
+            break;
+        }
+    }
+
+    return arr;
+}
+
+int* InsertionSort(int* arr, int size)
+{
+    for (int k = 1; k < size; k++)
+    {
+        int temp = arr[k];
+        int i = k;
+        while (i > 0 && arr[i - 1] >= temp)
+        {
+            arr[i] = arr[i - 1];
+            i--;
+        }
+
+        arr[i] = temp;
+    }
+
+    return arr;
+}
+
+int* SelectionSort(int* arr, int size)
+{
+    int min = 0;
+    for (int k = 0; k < size - 1; k++)
+    {
+        min = k;
+        for (int i = k + 1; i < size; i++)
+        {
+            if (arr[i] < arr[min])
+            {
+                min = i;
+            }
+        }
+        
+        if (min != k)
+        {
+            swap(arr[k], arr[min]);
+        }
+    }
+
+    return arr;
+}
+
 int Factorial(int n)
 {
     /* base check */
@@ -137,12 +212,38 @@ int BinarySearch(int element, const int* v, int size)
     return -1;
 }
 
+void Display(int arr[], int size)
+{
+    cout << ' ';
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << ' ';
+    }
+    cout << endl;
+}
 
 int main()
 {
+    int arr6[7] = { 1, 7, 0, 23, 9, 12, 4 };
+    cout << "Bubble sort" << endl;
+    Display(arr6, 7);
+    int* res6 = BubbleSort(arr6, 7);
+    Display(res6, 7);
+
+    int arr7[7] = { 1, 7, 0, 23, 9, 12, 4 };
+    cout << "Selection sort" << endl; 
+    Display(arr7, 7);
+    int* res7 = SelectionSort(arr7, 7);
+    Display(res7, 7);
+
+    int arr8[7] = { 1, 7, 0, 23, 9, 12, 4 };
+    cout << "Insertion sort" << endl;
+    Display(arr8, 7);
+    int* res8 = InsertionSort(arr8, 7);
+    Display(res8, 7);
+
     int arr5[7] = { -1, 7, 0, 23, -9, -12, 4 };
     int* res5 = ReArrange(arr5, 7);
-
 
     IntArray arr1{ 4 };
 
