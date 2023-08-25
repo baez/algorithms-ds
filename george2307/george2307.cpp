@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <chrono>
+#include <random>
 using namespace std;
 
 #include <string>
@@ -11,6 +13,105 @@ using namespace std;
 #include "MathUtil.h"
 #include "QueueTest.h"
 #include "IntArray.h"
+
+// Rearranging an Array of positive and negative numbers
+// Input: [-1, 7, 0, 23, -9, -12, 4]
+// Output: negative values to come first (left), zero 0 and the positive values on the right
+//         example output: [-1, -9, -12, 7, 0, 23, 4]
+// 
+int* ReArrange(int array[], int size)
+{
+    int k = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (array[i] < 0)
+        {
+            if (i != k)
+            {
+                std::swap(array[i], array[k]);
+            }
+
+            k++;
+        }
+    }
+
+    return array;
+}
+
+void Swap(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// [1, 7, 0, 23, 9, 12, 4]
+// Simplest sorting is Bubble Sort
+// Goes through the set of items
+//  { 1, 7, 0, 23, 9, 12, 4 };
+int* BubbleSort(int* arr, int size)
+{
+    for (int k = 0; k < size - 1; k++)
+    {
+        bool didSwap = false;
+        for (int i = 0; i < size - k - 1; ++i)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                swap(arr[i], arr[i + 1]);
+                didSwap = true;
+            }
+        }
+
+        if (!didSwap)
+        {
+            break;
+        }
+    }
+
+    return arr;
+}
+
+int* InsertionSort(int* arr, int size)
+{
+    for (int k = 1; k < size; k++)
+    {
+        int temp = arr[k];
+        int i = k;
+        while (i > 0 && arr[i - 1] >= temp)
+        {
+            arr[i] = arr[i - 1];
+            i--;
+        }
+
+        arr[i] = temp;
+    }
+
+    return arr;
+}
+
+int* SelectionSort(int* arr, int size)
+{
+    int min = 0;
+    for (int k = 0; k < size - 1; k++)
+    {
+        min = k;
+        for (int i = k + 1; i < size; i++)
+        {
+            if (arr[i] < arr[min])
+            {
+                min = i;
+            }
+        }
+        
+        if (min != k)
+        {
+            swap(arr[k], arr[min]);
+        }
+    }
+
+    return arr;
+}
 
 int Factorial(int n)
 {
@@ -113,11 +214,53 @@ int BinarySearch(int element, const int* v, int size)
     return -1;
 }
 
+void Display(int arr[], int size)
+{
+    cout << ' ';
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << ' ';
+    }
+    cout << endl;
+}
 int RecursiveBinarySearch(int array[], int left, int right, int element)
 {
     if (left <= right)
     {
         int middle = (left + right) / 2;
+
+int* GenerateRandomIntegers(int minRange, int maxRange, int size)
+{
+    std::random_device randDev;
+    std::mt19937 generator(randDev());
+
+    int* integers = new int[size];
+
+    std::uniform_int_distribution<int> distribution(minRange, maxRange);
+
+    for (int i = 0; i < size; ++i)
+    {
+        integers[i] = distribution(generator);
+    }
+
+    return integers;
+}
+
+void TestBubbleSort(int size)
+{
+    cout << "======= BubbleSort with " << size << " ==========" << endl;
+    int* integers = GenerateRandomIntegers(0, 1000, size);
+    // Display(integers, size);
+
+    auto startTime1 = std::chrono::high_resolution_clock::now();
+
+    int* sortedIntegers = BubbleSort(integers, size);
+
+    auto endTime1 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapedTime1 = endTime1 - startTime1;
+    cout << "time elapsed was: " << elapedTime1.count() << " seconds" << endl;
+    cout << "=========== || ==========" << endl;
+}
 
         if (array[middle] == element)
         {
@@ -138,12 +281,58 @@ int RecursiveBinarySearch(int array[], int left, int right, int element)
 
 int main()
 {
-    // Write a function that Displays all permutations of a given string
+    TestBubbleSort(100);
+    TestBubbleSort(1000);
+    TestBubbleSort(10000);
+    TestBubbleSort(20000);
+    TestBubbleSort(30000);
+    TestBubbleSort(50000);
+    TestBubbleSort(100000);
 
-    int sortedItems[5] = { 5,7,9,11,17 };
-    int result = RecursiveBinarySearch(sortedItems, 0, 4, 11);
 
-    cout << "Recursive binary search result: " << result << endl;
+    int size = 10000;
+    int* integers = GenerateRandomIntegers(0, 1000, size);
+    // Display(integers, size);
+
+    auto startTime1 = std::chrono::high_resolution_clock::now();
+
+    int* sortedIntegers = BubbleSort(integers, size);
+    
+    auto endTime1 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapedTime1 = endTime1 - startTime1;
+    cout << "time elapsed is: " << elapedTime1.count() << " seconds" << endl;
+    cout << "======= Sorted integers ==========" << endl;
+    // Display(integers, size);
+
+    // =================================================
+
+    int arr6[7] = { 1, 7, 0, 23, 9, 12, 4 };
+    cout << "Bubble sort" << endl;
+    Display(arr6, 7);
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+    int* res6 = BubbleSort(arr6, 7);
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapedTime = endTime - startTime;
+    cout << "time elapsed is: " << elapedTime.count() << " seconds" << endl;
+
+    Display(res6, 7);
+
+    int arr7[7] = { 1, 7, 0, 23, 9, 12, 4 };
+    cout << "Selection sort" << endl; 
+    Display(arr7, 7);
+    int* res7 = SelectionSort(arr7, 7);
+    Display(res7, 7);
+
+    int arr8[7] = { 1, 7, 0, 23, 9, 12, 4 };
+    cout << "Insertion sort" << endl;
+    Display(arr8, 7);
+    int* res8 = InsertionSort(arr8, 7);
+    Display(res8, 7);
+
+    int arr5[7] = { -1, 7, 0, 23, -9, -12, 4 };
+    int* res5 = ReArrange(arr5, 7);
+
 
     IntArray arr1{ 4 };
 
