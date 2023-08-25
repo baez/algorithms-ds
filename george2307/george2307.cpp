@@ -109,13 +109,42 @@ int BinarySearch(int element, const int* v, int size)
             right = middle - 1;
         }
     }
+      
+    return -1;
+}
+
+int RecursiveBinarySearch(int array[], int left, int right, int element)
+{
+    if (left <= right)
+    {
+        int middle = (left + right) / 2;
+
+        if (array[middle] == element)
+        {
+            return middle;
+        }
+        else if (array[middle] < element)
+        {
+            return RecursiveBinarySearch(array, middle + 1, right, element);
+        }
+        else
+        {
+            return RecursiveBinarySearch(array, left, middle - 1, element);
+        }
+    }
 
     return -1;
 }
 
-
 int main()
 {
+    // Write a function that Displays all permutations of a given string
+
+    int sortedItems[5] = { 5,7,9,11,17 };
+    int result = RecursiveBinarySearch(sortedItems, 0, 4, 11);
+
+    cout << "Recursive binary search result: " << result << endl;
+
     IntArray arr1{ 4 };
 
     cout << arr1[0] << std::endl;
