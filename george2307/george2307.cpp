@@ -5,7 +5,6 @@
 #include <vector>
 #include <chrono>
 #include <random>
-using namespace std;
 
 #include <string>
 #include "Stack.cpp"
@@ -13,6 +12,8 @@ using namespace std;
 #include "MathUtil.h"
 #include "QueueTest.h"
 #include "IntArray.h"
+
+using namespace std;
 
 // Rearranging an Array of positive and negative numbers
 // Input: [-1, 7, 0, 23, -9, -12, 4]
@@ -128,14 +129,14 @@ int Factorial(int n)
 string TryToConvert()
 {
     int n{1}; // int n = 1;
-    cin >> n;
+    std::cin >> n;
     if (n == 3)
     {
         string c{ "64" };
     }
     else
     {
-        cout << "0" << endl;
+        std::cout << "0" << endl;
     }
 
     return "";
@@ -223,11 +224,29 @@ void Display(int arr[], int size)
     }
     cout << endl;
 }
+
+
 int RecursiveBinarySearch(int array[], int left, int right, int element)
 {
     if (left <= right)
     {
         int middle = (left + right) / 2;
+        if (array[middle] == element)
+        {
+            return middle;
+        }
+        else if (array[middle] < element)
+        {
+            return RecursiveBinarySearch(array, middle + 1, right, element);
+        }
+        else
+        {
+            return RecursiveBinarySearch(array, left, middle - 1, element);
+        }
+    }
+
+    return -1;
+}
 
 int* GenerateRandomIntegers(int minRange, int maxRange, int size)
 {
@@ -260,23 +279,6 @@ void TestBubbleSort(int size)
     std::chrono::duration<double> elapedTime1 = endTime1 - startTime1;
     cout << "time elapsed was: " << elapedTime1.count() << " seconds" << endl;
     cout << "=========== || ==========" << endl;
-}
-
-        if (array[middle] == element)
-        {
-            return middle;
-        }
-        else if (array[middle] < element)
-        {
-            return RecursiveBinarySearch(array, middle + 1, right, element);
-        }
-        else
-        {
-            return RecursiveBinarySearch(array, left, middle - 1, element);
-        }
-    }
-
-    return -1;
 }
 
 int main()
@@ -352,6 +354,12 @@ int main()
     arr2[3] = 209;
 
     cout << "arr2: " << arr2 << std::endl;
+
+    int sortedItems[5] = { 5,7,9,11,17 };
+    int result = RecursiveBinarySearch(sortedItems, 0, 4, 11);
+
+    cout << "Recursive binary search result: " << result << endl;
+
 }
 
 /*
