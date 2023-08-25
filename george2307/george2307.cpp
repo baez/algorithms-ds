@@ -16,6 +16,44 @@
 
 using namespace std;
 
+int EvaluateCommandStack(const std::string& option)
+{
+    if (option == "create")
+    {
+    }
+
+    return 0;
+}
+
+void PrintOptions()
+{
+    std::cout << "-- create" << std::endl;
+    std::cout << "-- exit" << std::endl;
+}
+
+void CreateRepl()
+{
+    std::cout << "Welcome to my REPL \n";
+
+    //  main loop
+    while (true)
+    {
+        PrintOptions();
+        std::cout << "Please Enter Option: ";
+
+        std::string input;
+        std::getline(std::cin, input);
+        if (input == "exit")
+        {
+            break;
+        }
+
+        EvaluateCommandStack(input);
+    }
+
+    std::cout << "Thanks and goodbye!" << std::endl;
+}
+
 // Rearranging an Array of positive and negative numbers
 // Input: [-1, 7, 0, 23, -9, -12, 4]
 // Output: negative values to come first (left), zero 0 and the positive values on the right
@@ -559,15 +597,12 @@ int main()
     int result = RecursiveBinarySearch(sortedItems, 0, 4, 11);
 
     cout << "Recursive binary search result: " << result << endl;
-
 }
 
 /*
-
 Lab: add the number of iterations for each search and print it to the console.
 Add a loop to the user input 
 Exit when user enters 0
-
 */
 
 void TestRecursiveFuncs()
@@ -624,54 +659,3 @@ void TestRecursiveFuncs()
     CalculateAverage_WhenArrayIsNull_ShouldThrow();
     Dequeue_WhenItemsEnqueued_ShouldReturnFirstItem(); */
 }
-
-/*
-int EvaluateCommandStack(const std::string& option)
-{
-    if (option == "create")
-    {
-
-        // create stack
-        Stack<int> intStack;
-        Stack<char*> charPtrStack;
-
-    }
-
-    return 0;
-}
-
-void PrintOptionsStack()
-{
-    std::cout << "-- create" << std::endl;
-    std::cout << "-- exit" << std::endl;
-}
-*/
-
-/*
-    std::cout << "Welcome to my REPL \n";
-
-    //  main loop
-    while (true)
-    {
-        PrintOptionsStack();
-        std::cout << "Please Enter Option: ";
-
-        std::string input;
-        std::getline(std::cin, input);
-        if (input == "exit")
-        {
-            break;
-        }
-
-        EvaluateCommandStack(input);
-    }
-
-    std::cout << "Thanks and goodbye!" << std::endl;
-
-
-
-
-*/
-
-
-
