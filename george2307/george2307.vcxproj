@@ -167,6 +167,7 @@
     <ClInclude Include="QueueTest.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="TestHelper.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

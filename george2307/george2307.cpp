@@ -12,6 +12,7 @@
 #include "MathUtil.h"
 #include "QueueTest.h"
 #include "IntArray.h"
+#include "User.h"
 
 using namespace std;
 
@@ -225,7 +226,6 @@ void Display(int arr[], int size)
     cout << endl;
 }
 
-
 int RecursiveBinarySearch(int array[], int left, int right, int element)
 {
     if (left <= right)
@@ -281,8 +281,209 @@ void TestBubbleSort(int size)
     cout << "=========== || ==========" << endl;
 }
 
+void AddTwo(int* x)
+{
+    *x += 2;
+}
+
+void AddTwo(int& x)
+{
+    x += 2;
+}
+
+void Pointers1()
+{
+    int x = 2;          // stored in memory location 128
+    int *q = &x;        // & address-of operator will return 128
+    int *ptr_to_x = &x; // 128
+    int y = *ptr_to_x;  // * dereference operator - grab 2 from memory address 128 and put it in y
+    *ptr_to_x = 5;      // put 5 in memory location  128
+
+    int t, z;
+    int* a, b, c;
+    
+    AddTwo(&x);
+
+    int &r1 = x;
+    const int &r2 = x;
+    // r2 = 7; // not possible 
+
+    std::cout << &x << std::endl;
+    std::cout << &r1 << std::endl;
+    std::cout << &y << std::endl;
+
+    AddTwo(r1);
+
+    std::cout << r1 << std::endl;
+
+    int const* p = &x;
+    // *p = 6; // not possible
+
+    int *ptr = nullptr; // NULL, 0
+
+    std::cout << sizeof(int *) << std::endl;
+    std::cout << sizeof(char *) << std::endl;
+    std::cout << sizeof(double *) << std::endl;
+
+    void* v = &x;
+    int* i = &x;
+    std::cout << v << std::endl;
+    std::cout << i << std::endl;
+
+    std::cout << *i << std::endl;
+    std::cout << *(int *)v << std::endl;
+
+    int* nx = new int;
+    delete nx;
+}
+
+User* CreateUser()
+{
+    User* u = new User(); // on the heap
+    return u;
+}
+
+void Pointers2()
+{
+    User* u = CreateUser();
+    // using the u object here 
+    // ...
+    // ...
+
+    delete u;
+}
+
+void ProcessArray(int nums[], int size)
+{
+
+}
+
+void Pointers3()
+{
+    const int SIZE = 4;
+    int x[SIZE] = { 10, 20, 30, 40};
+
+
+    std::cout << x[0] << std::endl;
+    std::cout << x[1] << std::endl;
+
+    std::cout << x << ' ' << &x[0] << std::endl;
+    std::cout << x + 1 << ' ' << &x[1] << std::endl;
+    std::cout << x + 2 << ' ' << &x[2] << std::endl;
+
+    std::cout << *x << ' ' << x[0] << std::endl;
+    std::cout << *(x + 1) << ' ' << x[1] << std::endl;
+    std::cout << *(x + 2) << ' ' << x[2] << std::endl;
+
+    int size;
+    std::cin >> size;
+    int *arr = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = 0;
+    }
+
+    int num_of_rows;
+    int num_of_columns;
+    std::cout << "Enter number of rows and number of columns: ";
+    std::cin >> num_of_rows >> num_of_columns;
+
+    int** arr2 = new int* [num_of_rows];
+
+    for (int i = 0; i < num_of_rows; i++)
+    {
+        arr2[i] = new int[num_of_columns];
+    }
+
+    for (int i = 0; i < num_of_rows; i++)
+    {
+        for (int j = 0; j < num_of_columns; j++)
+        {
+            arr2[i][j] = i * j;
+        }
+    }
+
+    std::cout << " arr2: " << endl;
+    for (int i = 0; i < num_of_rows; i++)
+    {
+        std::cout << '|';
+        for (int j = 0; j < num_of_columns; j++)
+        {
+            std::cout << arr2[i][j] << '|';
+        }
+
+        std::cout << std::endl;
+    }
+}
+
+int Sum(int x, int y)
+{
+    return x + y;
+}
+
+void Pointers4()
+{
+    std::cout << Sum << std::endl;
+
+    int (*func)(int, int) = Sum;    // C syntax
+
+    auto* func2 = Sum;              // C++ syntax
+
+    std::cout << (*func)(4, 5) << std::endl;
+    
+    std::cout << func2(4, 5) << std::endl;
+}
+
+void Pointers5()
+{
+    int arr[3] = { 1,2,3 };
+    int arr2[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+}
+
+void Pointers6()
+{
+    int num_of_rows;
+    int num_of_columns;
+    std::cout << "Enter number of rows and number of columns: ";
+    std::cin >> num_of_rows >> num_of_columns;
+
+    int* arr = new int[num_of_rows * num_of_columns];
+
+    int init = 0;
+    for (int i = 0; i < num_of_rows; i++)
+    {
+        for (int j = 0; j < num_of_columns; j++)
+        {
+            arr[i * num_of_columns + j] = init++;
+        }
+    }
+
+    std::cout << " arr: " << endl;
+    for (int i = 0; i < num_of_rows; i++)
+    {
+        std::cout << '|';
+        for (int j = 0; j < num_of_columns; j++)
+        {
+            std::cout << arr[i * num_of_columns + j] << '|';
+        }
+
+        std::cout << std::endl;
+    }
+}
+
 int main()
 {
+    Pointers6();
+
+    Pointers4();
+
+    Pointers3();
+
+    Pointers1();
+
     TestBubbleSort(100);
     TestBubbleSort(1000);
     TestBubbleSort(10000);
@@ -290,7 +491,6 @@ int main()
     TestBubbleSort(30000);
     TestBubbleSort(50000);
     TestBubbleSort(100000);
-
 
     int size = 10000;
     int* integers = GenerateRandomIntegers(0, 1000, size);
