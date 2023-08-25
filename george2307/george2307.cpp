@@ -187,12 +187,9 @@ string TryToConvert()
 /*
 Fibonacci: each number is calculated by adding the previous two numbers
 0, 1, 1, 2, 3, 5, 8
-
 Write a recursive function to calculate fibonacci of n
-
 int Fibonacci(int n)
 int result = Fibpnacci(3)
-
 */
 
 int Fibonacci(int n)
