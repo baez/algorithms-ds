@@ -5,8 +5,9 @@
 #include <vector>
 #include <chrono>
 #include <random>
-
 #include <string>
+#include <cstdlib>
+
 #include "Stack.cpp"
 #include "MathTest.h"
 #include "MathUtil.h"
@@ -381,6 +382,7 @@ User* CreateUser()
 void Pointers2()
 {
     User* u = CreateUser();
+    
     // using the u object here 
     // ...
     // ...
@@ -509,16 +511,143 @@ void Pointers6()
     }
 }
 
+void Pointers7()
+{
+    User user1;
+
+    User* user2 = new User();
+    delete user2;
+
+    User *user3 = (User *)std::malloc(sizeof(User));
+    std::free(user3);
+}
+
+std::size_t allocated_memory = 0;
+
+void* operator new(std::size_t size)
+{
+    std::cout << "Memory allocated" << std::endl;
+    std::cout << "Allocated memory size: " << size << std::endl;
+    
+    allocated_memory += size;
+
+    return std::malloc(size);
+}
+
+void operator delete(void* memory, std::size_t size)
+{
+    std::cout << "Memory Deallocated" << std::endl;
+    std::cout << "Deallocated memory size : " << size << std::endl;
+
+    allocated_memory -= size;
+
+    std::free(memory);
+}
+
+void Pointers8()
+{
+    int* i = new int;
+    // delete i;
+
+    if(allocated_memory > 0)
+    {
+        std::cout << "There is a memory leak" << std::endl;
+    }
+}
+
+void DisplayArray(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << '[' << i << "] = " << arr[i] <<  std::endl;
+    }
+}
+
+void Merge(int arr[], int start, int mid, int end, int temp[])
+{
+    int size1 = mid - start + 1;
+    int size2 = end - mid;
+
+    // copy the sub-arrays into the temporary array
+    for (int i = 0; i < size1; i++)
+    {
+        temp[i] = arr[i + start];
+    }
+
+    for (int i = 0; i < size2; i++)
+    {
+        temp[i + size1] = arr[i + mid + 1];
+    }
+
+    // merge sorted subarrays into arr
+    int l = 0, r = size1, a = start;
+    while (l < size1 && r < size1 + size2)
+    {
+        if (temp[l] < temp[r])
+        {
+            arr[a++] = temp[l++];
+        }
+        else
+        {
+            arr[a++] = temp[r++];
+        }
+    }
+
+    // copy the remaining elements from left and right into arr
+    while (l < size1)
+    {
+        arr[a++] = temp[l++];
+    }
+
+    while (r < size1 + size2)
+    {
+        arr[a++] = temp[r++];
+    }
+}
+
+void MergeSort(int arr[], int start, int end, int temp[])
+{
+    if (start >= end)
+    {
+        return;
+    }
+
+    int mid = (start + end) / 2;
+
+    MergeSort(arr, start, mid, temp);
+    MergeSort(arr, mid + 1, end, temp);
+
+    Merge(arr, start, mid, end, temp);
+}
+
+void TestMergeSort()
+{
+    const int size = 8;
+    int arr[size] = { 6, 3, 5, 1, 4, 8, 2, 7 };
+    int temp[size];
+
+    std::cout << "Before merge-sort: " << std::endl;
+    DisplayArray(arr, size);
+    
+    MergeSort(arr, 0, size - 1, temp);
+    
+    std::cout << "After merge-sort: " << std::endl;
+    DisplayArray(arr, size);
+}
+
 int main()
 {
+    TestMergeSort();
+
+    /*
+    Pointers8(); 
+    Pointers7();
     Pointers6();
-
     Pointers4();
-
     Pointers3();
-
     Pointers1();
-
+    */
+    /*
     TestBubbleSort(100);
     TestBubbleSort(1000);
     TestBubbleSort(10000);
@@ -555,6 +684,8 @@ int main()
 
     Display(res6, 7);
 
+    
+
     int arr7[7] = { 1, 7, 0, 23, 9, 12, 4 };
     cout << "Selection sort" << endl; 
     Display(arr7, 7);
@@ -570,7 +701,7 @@ int main()
     int arr5[7] = { -1, 7, 0, 23, -9, -12, 4 };
     int* res5 = ReArrange(arr5, 7);
 
-
+    
     IntArray arr1{ 4 };
 
     cout << arr1[0] << std::endl;
@@ -594,6 +725,7 @@ int main()
     int result = RecursiveBinarySearch(sortedItems, 0, 4, 11);
 
     cout << "Recursive binary search result: " << result << endl;
+    */
 }
 
 /*
