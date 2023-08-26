@@ -622,6 +622,21 @@ void MergeSort(int arr[], int start, int end, int temp[])
 
 void TestMergeSort()
 {
+    const int size1 = 1;
+    int arr1[size1] = { 6 };
+    int temp1[size1];
+    MergeSort(arr1, 0, size1 - 1, temp1);
+
+    const int size2 = 2;
+    int arr2[size2] = { 6, 3 };
+    int temp2[size2];
+    MergeSort(arr2, 0, size2 - 1, temp2);
+
+    const int size3 = 3;
+    int arr3[size3] = { 6, 3, 2 };
+    int temp3[size3];
+    MergeSort(arr3, 0, size3 - 1, temp3);
+
     const int size = 8;
     int arr[size] = { 6, 3, 5, 1, 4, 8, 2, 7 };
     int temp[size];
