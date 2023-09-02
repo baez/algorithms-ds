@@ -621,25 +621,26 @@ void MergeSort(int arr[], int start, int end, int temp[])
     Merge(arr, start, mid, end, temp);
 }
 
-int Partition(int arr[], int pivot, int n)
+int generateRandom(int low, int high)
 {
-    std::cout << std::endl << "Pivot:" << pivot << " n: " << n << std::endl;
-    swap(arr[pivot], arr[n]);
-    int l = 0;
-    for (int i = 1; i < n - 1; i++)
+    return low + rand() % (high - low + 1);
+}
+
+int Partition(int arr[], int pivot, int right)
+{
+    swap(arr[pivot], arr[right]);
+    int left = 0;
+    for (int i = 1; i < right - 1; i++)
     {
-        if (arr[i] < arr[n])
+        if (arr[i] < arr[right])
         {
-            l++;
-            swap(arr[l], arr[i]);
+            left++;
+            swap(arr[left], arr[i]);
         }
     }
 
-    swap(arr[n], arr[l + 1]);
-
-    DisplayArray(arr, 6);
-    cout << "Return l:" << l + 1 << std::endl;
-    return l + 1;
+    swap(arr[right], arr[left + 1]);
+    return left + 1;
 }
 
 void QuickSort(int arr[], int pivot, int n)
@@ -654,7 +655,7 @@ void QuickSort(int arr[], int pivot, int n)
 
 void TestQuickSort()
 {
-    int arr[] = {5,2,9,1,5,6};
+    int arr[] = { 5, 2, 9, 1, 5, 6, 3, 23, 4, 7};
     int n = sizeof(arr) / sizeof(arr[0]);
     
     DisplayArray(arr, n);
@@ -662,6 +663,22 @@ void TestQuickSort()
     QuickSort(arr, 0, n - 1);
 
     DisplayArray(arr, n);
+}
+
+void TestQuickSort(int size)
+{
+    cout << "======= QuickSort with " << size << " ==========" << endl;
+    int* randomSet = GenerateRandomIntegers(0, size, size);
+    // Display(integers, size);
+
+    auto startTime1 = std::chrono::high_resolution_clock::now();
+
+    QuickSort(randomSet, 0, size - 1);
+
+    auto endTime1 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapedTime1 = endTime1 - startTime1;
+    cout << "time elapsed was: " << elapedTime1.count() << " seconds" << endl;
+    cout << "=========== || ==========" << endl;
 }
 
 void TestMergeSort()
@@ -696,7 +713,9 @@ void TestMergeSort()
 
 int main()
 {
-    TestQuickSort();
+    // TestQuickSort();
+    TestQuickSort(100);
+
     // TestMergeSort();
 
     /*
