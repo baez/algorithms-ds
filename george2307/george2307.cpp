@@ -557,6 +557,7 @@ void Pointers8()
 
 void DisplayArray(int arr[], int size)
 {
+    std::cout << "==== ====" << std::endl;
     for (int i = 0; i < size; i++)
     {
         std::cout << '[' << i << "] = " << arr[i] <<  std::endl;
@@ -620,6 +621,49 @@ void MergeSort(int arr[], int start, int end, int temp[])
     Merge(arr, start, mid, end, temp);
 }
 
+int Partition(int arr[], int pivot, int n)
+{
+    std::cout << std::endl << "Pivot:" << pivot << " n: " << n << std::endl;
+    swap(arr[pivot], arr[n]);
+    int l = 0;
+    for (int i = 1; i < n - 1; i++)
+    {
+        if (arr[i] < arr[n])
+        {
+            l++;
+            swap(arr[l], arr[i]);
+        }
+    }
+
+    swap(arr[n], arr[l + 1]);
+
+    DisplayArray(arr, 6);
+    cout << "Return l:" << l + 1 << std::endl;
+    return l + 1;
+}
+
+void QuickSort(int arr[], int pivot, int n)
+{
+    if (pivot < n)
+    {
+        int r = Partition(arr, pivot, n);
+        QuickSort(arr, pivot, r - 1);
+        QuickSort(arr, r, n - 1);
+    }
+}
+
+void TestQuickSort()
+{
+    int arr[] = {5,2,9,1,5,6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    
+    DisplayArray(arr, n);
+
+    QuickSort(arr, 0, n - 1);
+
+    DisplayArray(arr, n);
+}
+
 void TestMergeSort()
 {
     const int size1 = 1;
@@ -652,7 +696,8 @@ void TestMergeSort()
 
 int main()
 {
-    TestMergeSort();
+    TestQuickSort();
+    // TestMergeSort();
 
     /*
     Pointers8(); 
