@@ -29,6 +29,13 @@ private:
 		return 2 * index + 2;
 	}
 
+	void swap(int* a, int* b)
+	{
+		int temp = *a;
+		*a = *b;
+		*b = temp;
+	}
+
 	void TryBubbleUp(int currentIndex)
 	{
 		int parentIndex = GetParentIndex(currentIndex);
@@ -53,10 +60,10 @@ private:
 
 		if (rightIndex < m_currentSize && m_heap[rightIndex] > m_heap[tempIndex])
 		{
-			tempIndex = rightIndex; // save the larger value's index
+			tempIndex = rightIndex; // again save the larger value's index
 		}
 
-		if (tempIndex != currentIndex)
+		if (tempIndex != currentIndex) // we have seen a larger value, we need to swap
 		{
 			std::swap(m_heap[tempIndex], m_heap[currentIndex]);
 			TryMoveDown(tempIndex);
