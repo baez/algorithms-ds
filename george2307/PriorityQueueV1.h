@@ -4,7 +4,7 @@
 // index:  0, 1,  2, 3
 // Max PQ
 // Implement the elementary priority queue.
-// 
+// Backed by an array
 class PriorityQueueV1
 {
 public:
