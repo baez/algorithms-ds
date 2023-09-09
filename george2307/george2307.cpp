@@ -14,6 +14,7 @@
 #include "QueueTest.h"
 #include "IntArray.h"
 #include "User.h"
+#include "PriorityQueueV2.h"
 
 using namespace std;
 
@@ -711,10 +712,34 @@ void TestMergeSort()
     DisplayArray(arr, size);
 }
 
+
+void TestPQ()
+{
+    PriorityQueueV2 pq(20);
+    
+    int arr[] = { 5, 18, 10, 27, 4, 16, 8 };
+    int arrSize = sizeof(arr) / sizeof(arr[0]);
+
+    for (int i = 0; i < arrSize; i++)
+    {
+        pq.Enqueue(arr[i]);
+        std::cout << "Enqueued item: " << arr[i] << std::endl;
+    }
+
+    for (int i = 0; i < arrSize; i++)
+    {
+        std::cout << "Dequeued item: " << pq.Dequeue() << std::endl;
+    }
+
+    std::cout << "All items are Dequeued" << std::endl;
+}
+
 int main()
 {
+    TestPQ();
+
     // TestQuickSort();
-    TestQuickSort(100);
+    // TestQuickSort(100);
 
     // TestMergeSort();
 

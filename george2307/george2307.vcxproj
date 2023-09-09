@@ -164,6 +164,7 @@
     </ClCompile>
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="PriorityQueueV1.h" />
+    <ClInclude Include="PriorityQueueV2.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QueueTest.h" />
     <ClInclude Include="Test.h" />
