@@ -682,6 +682,13 @@ void TestQuickSort(int size)
     cout << "=========== || ==========" << endl;
 }
 
+void swap(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 void TestMergeSort()
 {
     const int size1 = 1;
@@ -712,11 +719,16 @@ void TestMergeSort()
     DisplayArray(arr, size);
 }
 
-
 void TestPQ()
 {
+    // test the swap function
+    int a = 12;
+    int b = 10;
+    swap(&a, &b);
+
+    // test the priority queue
     PriorityQueueV2 pq(20);
-    
+ 
     int arr[] = { 5, 18, 10, 27, 4, 16, 8 };
     int arrSize = sizeof(arr) / sizeof(arr[0]);
 
