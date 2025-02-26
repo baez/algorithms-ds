@@ -25,9 +25,10 @@ It serves as a useful resource for students and software engineers looking to en
 ✅ **Graphs (Adjacency Matrix & List)**  
 ✅ **Heaps & Hash Tables**  
 
-## 🤝 Contributions  
-Contributions are welcome! If you’d like to improve the code, fix a bug, or add a new algorithm, feel free to open a **pull request**. Please check the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
 ## 📜 License  
 This project is licensed under **Apache 2.0 License**.
+
+## Contact
+For any questions or discussions, feel free to reach out via GitHub Issues or submit a pull request!
+
 
