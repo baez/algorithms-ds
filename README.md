@@ -29,5 +29,5 @@ It serves as a useful resource for students and software engineers looking to en
 Contributions are welcome! If you’d like to improve the code, fix a bug, or add a new algorithm, feel free to open a **pull request**. Please check the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 📜 License  
-This project is open-source and available under the **MIT License**.
+This project is licensed under **Apache 2.0 License**.
 
