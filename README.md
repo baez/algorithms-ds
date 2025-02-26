@@ -1,2 +1,3 @@
-# cpp-algo1-2023-07
-Algorithms 1 solution
+# Algorithms and data structures in C++
+Source code is in master branch
+
