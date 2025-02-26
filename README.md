@@ -8,8 +8,6 @@ It serves as a useful resource for students and software engineers looking to en
 - Implementations of common **sorting, searching, and graph algorithms**  
 - Various **data structures** like stacks, queues, linked lists, trees, and graphs  
 
-```
-
 ## 📚 Implemented Algorithms & Data Structures  
 
 ### 🔹 Algorithms  
